@@ -1,8 +1,38 @@
 # Caffe
 
-## Build fails in MacOS
-If `cmake` fails in the build folder due to a `vecLib` related Error, edit `CMakeCache.txt` and set `vecLib_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Headers`
+## My comments
 
+I followed this guide and made a few changes to fit my version needs: [https://www.dazhuanlan.com/2019/08/15/5d5514f5efcdc/](https://www.dazhuanlan.com/2019/08/15/5d5514f5efcdc/)
+
+
+- My changes to `Makefile.config` and `include/caffe/ommon.hpp` are already committed here
+
+- If the pre-make step fails fails in the build folder due to a `vecLib` related Error, edit `CMakeCache.txt` and set `vecLib_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Headers`
+
+- My edits to `CMakeCache.txt` after running `cmake` for premake:
+
+```
+//Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/local/bin/python3
+
+//Path to a file.
+PYTHON_INCLUDE_DIR:PATH=/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/include/python3.7m
+
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/libpython3.7m.dylib
+
+//Flags used by the CXX compiler during all build types.
+CMAKE_CXX_FLAGS:STRING=-std=c++11
+  
+//Boost python library (release)
+Boost_PYTHON_LIBRARY_RELEASE:FILEPATH=/usr/local/Cellar/boost-python3/1.71.0_1/lib/libboost_python37-mt.dylib
+  
+//Build Caffe without CUDA support
+CPU_ONLY:BOOL=ON
+```
+
+
+## Regular README
 
 [![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
