@@ -1,9 +1,8 @@
 # Caffe
 
-## My comments
+## My comments on the installation process of Caffe (CPU only) on MacOS 10.15.1 with Homebrew, Python 3.7.5 and OpenCV 4.1.2 
 
 I followed this guide and made a few changes to fit my version needs: [https://www.dazhuanlan.com/2019/08/15/5d5514f5efcdc/](https://www.dazhuanlan.com/2019/08/15/5d5514f5efcdc/)
-
 
 - My changes to `Makefile.config` and `include/caffe/ommon.hpp` are already committed here
 
