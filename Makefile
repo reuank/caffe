@@ -276,7 +276,7 @@ endif
 # clang++ instead of g++
 # libstdc++ for NVCC compatibility on OS X >= 10.9 with CUDA < 7.0
 ifeq ($(OSX), 1)
-	CXX := /usr/bin/clang++
+	CXX := /usr/bin/clang++ -std=c++11
 	ifneq ($(CPU_ONLY), 1)
 		CUDA_VERSION := $(shell $(CUDA_DIR)/bin/nvcc -V | grep -o 'release [0-9.]*' | tr -d '[a-z ]')
 		ifeq ($(shell echo | awk '{exit $(CUDA_VERSION) < 7.0;}'), 1)

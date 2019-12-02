@@ -30,6 +30,19 @@ Boost_PYTHON_LIBRARY_RELEASE:FILEPATH=/usr/local/Cellar/boost-python3/1.71.0_1/l
 CPU_ONLY:BOOL=ON
 ```
 
+- For `sudo make test` not to fail (see [this](https://github.com/BVLC/caffe/issues/6491#issuecomment-491557179)), I need to change
+
+```
+ifeq ($(OSX), 1)
+	CXX := /usr/bin/clang++
+```
+
+into
+
+```
+ifeq ($(OSX), 1)
+	CXX := /usr/bin/clang++ -std=c++11
+```
 
 ## Regular README
 
